@@ -1,33 +1,39 @@
-# BE YOUR OWN — studio portfolio
+# Akash Tyagi — portfolio
 
-An interactive 3D portfolio for **BE YOUR OWN**, the Brand, Digital & Growth studio in Banur, Punjab.
+The portfolio of Akash Tyagi, creative developer: real-time 3D, motion and the products behind them. Punjab, India.
 
 ## The experience
 
-1. **Iris gate.** A procedural camera aperture (WebGL shader) sits over the site while the work loads. The ring shows load progress and the Own Method pillars. Clicking enter opens the blades onto the hall.
-2. **The hall.** A pinned WebGL corridor with slatted walls, a reflective floor and status lights. Eight featured projects hang as screens showing the real sites. Scrolling walks the camera from screen to screen. Each screen lights the hall in its own colour and lifts into the ceiling as you pass beneath it. Click a screen, or its tab, to open the case study.
-3. **What we do.** The four pillars (Define, Express, Build, Grow), pinned and stepped by scroll, with a matching project image for each.
-4. **Archive.** All 18 engagements with sector filters and a preview that follows the cursor.
-5. **In their words.** Client testimonials on an auto-advancing carousel.
-6. **Contact.** Studio facts, contact actions and socials.
+1. **Gate.** Twelve radial panes of real project frames surround a tuning dial with twelve disciplines around it. Moving the pointer tunes the dial: the orange dot snaps to the nearest word and its pane lights up. Click to tune in (with sound) or to enter (sound off). The panes fly outward on entry.
+2. **The hall.** A pinned WebGL corridor with slatted walls, a mirror floor and status lights. Nine screens hang down the middle: a showreel, then Rosso, The Legacy Protocol, Lusso di Firenze, Octaboot, Onfinity, The Uniques, SkillCures and CricketLive. Scrolling walks the camera from screen to screen. The active screen cycles real frames of the project with a diagonal wipe, tints the corridor in its colours, and lifts into the ceiling as you pass. Click a screen or its tab to open the project.
+3. **What I make.** Six disciplines, pinned and stepped by scroll. The media frame cycles through the matching projects.
+4. **Index.** All twelve projects plus six studio projects for BE YOUR OWN, with filters and a preview that follows the cursor.
+5. **Timeline.** Pinned. A dot travels the rail while the year rolls over.
+6. **Contact.** The name, the facts, contact links, and buttons to replay the intro or turn motion off.
 
-The **Motion off** toggle (bottom left) switches to a static version with no 3D or smooth scrolling. Visitors whose system asks for reduced motion get it automatically. You can also force it with `?still`.
+All sound is synthesised in the browser with Web Audio: an ambient bed, a tick as the dial tunes and between steps, and a whoosh between screens. It starts only after a click and can be muted from the bottom-left control.
+
+**Motion off** (on the contact section, or `?still`) shows a static version with no 3D, smooth scrolling or pinning. Visitors whose system asks for reduced motion get it automatically.
 
 ## Files
 
 | Path | What it holds |
 | --- | --- |
-| `index.html` | Markup and the inline wordmark |
-| `assets/site.css` | All styles (brand tokens at the top) |
-| `assets/data.js` | Case studies, pillars and testimonials (copy from beyourown.in) |
-| `assets/app.js` | Scroll choreography (GSAP + ScrollTrigger + Lenis), gate, archive, carousel, case overlay |
-| `assets/hall.js` | The three.js hall and the iris shader |
-| `assets/work/` | Project images (WebP). `<slug>.webp` is the main image, `-sm` the thumbnail, `-1`/`-2` gallery shots |
+| `index.html` | Markup |
+| `assets/site.css` | All styles (tokens at the top) |
+| `assets/data.js` | Projects, disciplines, timeline and studio work |
+| `assets/app.js` | Gate, scroll choreography (GSAP ScrollTrigger + Lenis), index, timeline, project overlay |
+| `assets/hall.js` | The three.js hall: corridor, screens, frame-wipe shader, camera rig |
+| `assets/sound.js` | Procedural sound |
+| `assets/p/` | Project frames at 1600×1000 (`<slug>-<n>.webp`), thumbnails (`-sm`) and 1024×640 textures in `gl/` |
+| `assets/work/` | Studio project images |
+
+Project frames were captured from local builds of each repository, or taken from screenshots already in the repositories.
 
 ## Editing
 
-- **Add or change a project:** edit `assets/data.js`. Set `featured: true` to hang it in the hall, and add images named after its `slug` to `assets/work/`.
-- **Brand colours and type:** the `:root` block at the top of `assets/site.css`.
+- **Add a project:** add an entry to `projects` in `assets/data.js` and put its frames in `assets/p/` and `assets/p/gl/`. Add its slug to `featured` to hang it in the hall.
+- **Colours and type:** the `:root` block at the top of `assets/site.css`.
 
 ## Run it
 
@@ -37,4 +43,4 @@ It's a static site with no build step. Serve the folder, since browsers block ES
 python3 -m http.server 8000
 ```
 
-Libraries load from jsDelivr: three.js 0.160.0, GSAP 3.12.5 with ScrollTrigger, and Lenis 1.1.13. Fonts are Bricolage Grotesque, Geist and Geist Mono from Google Fonts.
+Libraries load from jsDelivr: three.js 0.160.0, GSAP 3.12.5 with ScrollTrigger, and Lenis 1.1.13. Fonts are Archivo, Geist and Geist Mono from Google Fonts.

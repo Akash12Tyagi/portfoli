@@ -1,170 +1,145 @@
-/* BE YOUR OWN — case studies, testimonials and pillars.
-   Copy is taken from beyourown.in. Images live in assets/work/. */
-window.BYO = (function () {
-  const W = 'assets/work/';
-  const cases = [
+/* Akash Tyagi — projects, disciplines, timeline.
+   Featured projects hang in the 3D hall; frames live in assets/p/ (full size) and assets/p/gl/ (textures). */
+window.AT = (function () {
+  const P = 'assets/p/', G = 'assets/p/gl/', S = 'assets/work/';
+  const frames = (slug, n) => Array.from({ length: n }, (_, i) => `${slug}-${i}.webp`);
+
+  const projects = [
     {
-      slug: 'liiaroma', featured: true, name: 'LIIAROMA', sector: 'Fragrance', scope: 'Brand + Web',
-      title: 'From a weak online presence to a completely redefined digital identity.',
-      timeline: '2–3 months', role: 'Web development + brand identity', url: 'https://www.liiaroma.com', urlLabel: 'liiaroma.com',
-      challenge: 'Fragrance is one of the hardest categories to sell online, because the product itself can’t be conveyed through a screen. LIIAROMA’s thin online presence and dated interface meant visitors judged the product off a site that didn’t match it.',
-      approach: 'The rebuild was built around one idea: the site itself had to perform the confidence the brand claims. A full digital rebuild rather than a surface refresh, with new structure, new presentation and credibility signals throughout.',
-      imgs: ['liiaroma', 'liiaroma-1', 'liiaroma-2']
+      slug: 'rosso', name: 'Rosso', kind: 'Real-time 3D', label: 'Concept, automotive', year: '2026', n: 6,
+      line: '458 Italia, a 3D scroll experience.',
+      what: 'A pitch-ready concept for a premium car site built around a real-time 3D 458 Italia: a studio light rig, a paint-sweep shader, flames at the limiter and an exploded anatomy view.',
+      how: 'The Engine chapter is a procedural, component-separated V8 of 22 assemblies with exact slider-crank and cam kinematics, teardown poses and an x-ray mode, plus a Web Audio engine note driven by rpm.',
+      stack: 'three.js · GLSL · GSAP · Lenis · Web Audio · Vite', note: 'Unofficial concept, not affiliated with Ferrari.',
+      repo: 'car-3d'
     },
     {
-      slug: 'bobochi', featured: true, name: 'BoBoChi Kids', sector: 'Kidswear', scope: 'Brand + E-Commerce',
-      title: 'Brand identity and e-commerce platform for a premium kids’ fashion label.',
-      timeline: '2–3 months', role: 'Brand identity + e-commerce website', url: 'https://www.instagram.com/bobochi.india', urlLabel: 'instagram.com/bobochi.india',
-      challenge: 'BoBoChi was another name in a kids’ fashion market where almost nobody has a defined identity. A customer could like a product and still forget who sold it ten minutes later.',
-      approach: 'The strategy started from who’s actually buying, not who’s wearing it. Every decision, from the palette to the navigation to the language that earns trust, was made for the parent making the purchase.',
-      result: { v: '3x', l: 'Growth since launch' },
-      imgs: ['bobochi', 'bobochi-1', 'bobochi-2']
+      slug: 'legacy', name: 'The Legacy Protocol', kind: 'WebGL film', label: 'Fan tribute, short film', year: '2026', n: 6,
+      line: 'A four-act cinematic short, rendered live and directed by scroll.',
+      what: 'A damaged helmet and a dying arc reactor, the armour coming apart into embers, a silent gap, then a hall of iron where a cloaked figure calls up a sphere of green energy.',
+      how: 'Every model is sculpted in code with signed-distance fields and meshed in parallel workers. Erosion shading, a vertex-animated cloak, depth of field, bloom and grain, one scrubbed timeline and a soundtrack synthesised in the browser.',
+      stack: 'React 19 · three.js · SDF + Surface Nets · GSAP ScrollTrigger · Web Audio', note: 'Unofficial fan tribute. No footage, images or music used.',
+      repo: 'iron-man'
     },
     {
-      slug: 'abrocare', featured: true, name: 'AbroCare', sector: 'Fintech', scope: 'Study Abroad Platform',
-      title: 'Financial services platform for international students.',
-      timeline: '2–3 months', role: 'Fintech platform design + development', url: 'https://www.abrocare.com', urlLabel: 'abrocare.com',
-      challenge: 'GIC accounts for Canada, Blocked Accounts for Germany, health cover for Australia and Forex: each a different product, partner bank and rulebook, where one wrong piece can derail a visa against a hard deadline.',
-      approach: 'Organised around exact use case, with named, checkable partners (ICICI Bank Canada, RBC, Fintiba at Sutor Bank) instead of vague trust signals, and an agent commission track running alongside the student-facing services.',
-      result: { v: '2x', l: 'Earnings growth, up to' },
-      imgs: ['abrocare', 'abrocare-2', 'abrocare-1']
+      slug: 'lusso', name: 'Lusso di Firenze', kind: '3D commerce', label: 'Concept, fragrance', year: '2026', n: 6,
+      line: 'Ten perfume bottles, modelled live from product photography.',
+      what: 'A concept homepage built to the Lusso di Firenze brand guidelines. All ten bottles are real-time models with transmissive glass, refracting liquid and printed labels on a travertine turntable.',
+      how: 'A scroll story from hero to notes orbiting an open bottle, the collection turntable, brand pillars and a 3D gift box whose lid opens as three chosen bottles drop in. Drag to turn, click to spritz.',
+      stack: 'three.js · Lenis · physical glass materials', note: 'Built at BE YOUR OWN.',
+      repo: 'akash-tyagi'
     },
     {
-      slug: 'orveet', featured: true, name: 'Orveet', sector: 'Streetwear', scope: 'Brand + E-Commerce',
-      title: 'Digital presence and e-commerce experience for a premium streetwear label.',
-      timeline: '2–3 months', role: 'Digital presence + e-commerce experience', stack: 'Shopify', url: 'https://www.instagram.com/orveet.official', urlLabel: 'instagram.com/orveet.official',
-      challenge: 'Minimalism reads as “premium and confident” only when every remaining detail is executed with precision. There is very little space between “elevated” and “empty”.',
-      approach: 'Built to prove the “minimal, premium” claim rather than repeat it: deeper product architecture, naming in the same restrained voice, transparent pricing and a real trust layer.',
-      imgs: ['orveet', 'orveet-1', 'orveet-2']
+      slug: 'octaboot', name: 'Octaboot', kind: 'Real-time 3D', label: 'Concept, tailoring', year: '2026', n: 4,
+      line: 'A three-piece suit, cut flat and folded onto the body as you scroll.',
+      what: 'A bespoke suit is cut on the table, carried to the tailor’s form and folded into shape piece by piece. Scroll back and every piece unfolds again. Colour and cloth pickers restyle it live.',
+      how: 'A 20-bone rig over parametric tubes with procedural breathing and an IK walk. Every garment vertex stores its flat and closed shapes, and a shader folds between them with thickness, creases and hem sway.',
+      stack: 'React · three.js · custom cloth shader · SDF sculpting in workers',
+      repo: 'suits'
     },
     {
-      slug: 'sviet', featured: true, name: 'SVIET', sector: 'Education', scope: 'Digital transformation',
-      title: 'Placements page and outcomes presentation for a multi-disciplinary institute.',
-      timeline: '2–3 months', role: 'Placements page + outcomes presentation', url: 'https://www.sviet.ac.in', urlLabel: 'sviet.ac.in',
-      challenge: 'Indian higher-ed marketing is saturated with placement claims, and families have learned to discount them. A genuinely good number no longer reads as credible on its own.',
-      approach: 'A placements page built to survive being checked, not just read: real trends, real students and the operational machinery behind the numbers, laid out for a skeptical parent to inspect.',
-      imgs: ['sviet', 'sviet-2', 'sviet-1']
+      slug: 'onfinity', name: 'Onfinity', kind: '3D commerce', label: 'Concept, electronics', year: '2026', n: 5,
+      line: 'A WebGL-first showroom for an Indian TV maker.',
+      what: 'A procedurally modelled TV whose screen is a live shader, sized from 32 to 98 inches beside a person for scale, then an infinite corridor of screens, a shop with cart, and a true-to-scale 3D room.',
+      how: 'A power-on gate with a CRT flash and synthesised hum, 4K, QLED and OLED screen wipes, a CRT post pass in the showroom, AR through Quick Look and WebXR, and a small Node server for leads and analytics.',
+      stack: 'three.js · GLSL · WebXR · Node',
+      repo: 'NaariCare/onfinity-3d'
     },
     {
-      slug: 'vyomrita', featured: true, name: 'Vyomrita', sector: 'Ayurveda', scope: 'Brand + Website + Social',
-      title: 'Building an Ayurvedic brand from the ground up, from first idea to first sale.',
-      role: 'Strategy, identity, website and social, end to end', stack: 'Shopify',
-      challenge: 'Vyomrita began as a conviction, not a brand: no name people knew, no look, no website, no audience, in a market where established labels already own the premium shelf.',
-      approach: 'Every piece tied to a single thought: Ayurveda you can trust, because it’s tested like medicine. If a word, colour or page didn’t serve that, it didn’t make it in.',
-      imgs: ['vyomrita', 'vyomrita-1', 'vyomrita-2']
+      slug: 'uniques', name: 'The Uniques', kind: 'Real-time 3D', label: 'Concept, community', year: '2026', n: 5,
+      line: 'A community homepage you fly through.',
+      what: 'A spatial re-imagining of the Uniques homepage: a poster corridor out through a neon portal, extruded numbers in lacquer and chrome, a helix of events and a drum of photos you can spin.',
+      how: 'Twelve HTML chapters scroll over one WebGL world. Each chapter’s centre maps to a station on a Catmull-Rom camera rail, with bloom on desktop and a re-framed rail on phones.',
+      stack: 'React · three.js · Catmull-Rom camera rail · bloom',
+      repo: 'uniques-sample/uniques-3d'
     },
     {
-      slug: 'evren', featured: true, name: 'Evren', sector: 'Hair care', scope: 'Brand + Growth',
-      title: 'E-commerce UX rebuild, brand enhancement and SEO for an Ayurvedic haircare label.',
-      timeline: '2–3 months', role: 'Brand identity + e-commerce UX rebuild', stack: 'Shopify', url: 'https://www.instagram.com/the.evren.store', urlLabel: 'instagram.com/the.evren.store',
-      challenge: 'Evren’s problem wasn’t demand, it was conversion. The site added friction exactly where shoppers compare products by concern, check trust signals and choose between bundles.',
-      approach: 'Three fronts that reinforce each other: a UX redesign from problem to checkout, a sharper identity that earns first-time trust, and search visibility so the new store had traffic to convert.',
-      result: { v: '₹1L', l: 'Sales in the first month' },
-      imgs: ['evren', 'evren-1', 'evren-2']
+      slug: 'skillcures', name: 'SkillCures', kind: 'Cinematic landing', label: 'Landing page, pharma careers', year: '2026', n: 6,
+      line: 'One continuous 3D world. Every chapter is a different camera move.',
+      what: 'A real-time 3D rebuild of the SkillCures landing page: a dashboard, a live prescription, a patent journey, a network globe and a mentor table, with the four pill mascots rebuilt as 3D models.',
+      how: 'Dolly, truck, dive, sweep and crane moves between chapters, adaptive quality that steps resolution and bloom down when frames drop, and a static fallback with the same content.',
+      stack: 'three.js · Vite · adaptive quality',
+      repo: 'skillcures-3d'
     },
     {
-      slug: 'alliance', featured: true, name: 'Alliance', sector: 'Education', scope: 'Communication software',
-      title: 'Software that lets a school talk to its audience, conveniently.',
-      role: 'Communication software design + development', url: 'https://www.ais.ac.in', urlLabel: 'ais.ac.in',
-      challenge: 'A school speaks to many people at once: families deciding on admission, parents already in the school, candidates looking for a job. Alliance needed one convenient way to reach all of them.',
-      approach: 'Built around how the school actually communicates: the admissions enquiry on every page, with educators, infrastructure, life at Alliance, a gallery and jobs, each easy for the school to keep current.',
-      imgs: ['alliance']
+      slug: 'cricketlive', name: 'CricketLive', kind: 'Product platform', label: 'Platform, sports', year: '2026', n: 4,
+      line: 'Live cricket scores, built for 10k+ concurrent users.',
+      what: 'Live and completed matches, scorecards, players and teams, with real data from Cricsheet and Wikidata and a complete simulated T20 for demos.',
+      how: 'A Next.js App Router site with SSR and ISR, a Fastify API with passwordless login and sessions, a Drizzle schema on Postgres, Redis caching, load tests and a release gate on the browser bundles.',
+      stack: 'Next.js · Fastify · Postgres · Drizzle · Redis · Docker',
+      repo: 'cricket-site'
     },
     {
-      slug: 'lms', name: 'LMS FutureEd', sector: 'Education', scope: 'Lead management system',
-      title: 'One system that makes running admissions easy for the institute.',
-      role: 'Lead management system design + development', stack: 'Turborepo, Fastify, Next.js, Prisma, Redis/BullMQ, Cloudflare R2',
-      challenge: 'An admissions counselling practice lives or dies on response time, and Meta Lead Ads deliver leads faster than a spreadsheet can absorb them.',
-      approach: 'Leads arrive straight from Meta Lead Ads, move through the admissions workflow and end in a generated PDF admission form with files stored securely. Built across 18+ phases.',
-      imgs: ['lms']
+      slug: 'futureed', name: 'Future Education', kind: 'Product platform', label: 'Platform, education', year: '2026', img: S + 'lms.webp', thumb: S + 'lms-sm.webp',
+      line: 'Admission counselling platform with its own admin CMS.',
+      what: 'Course finder, course matcher, college directory with compare, scholarship eligibility checker, application tracker and success stories, plus a lead management system fed by Meta Lead Ads.',
+      how: 'Next.js 16 and React 19 on Postgres through Prisma, NextAuth for admins, a 15-resource admin CMS with audit logging, first-party analytics and lead capture.',
+      stack: 'Next.js · React 19 · Prisma · Postgres · NextAuth · Tailwind 4',
+      repo: 'future-education-web'
     },
     {
-      slug: 'csawdrip', name: 'CSAWDRIP', sector: 'Streetwear', scope: 'Brand + E-Commerce',
-      title: 'E-commerce and product-line presentation for a concept-driven streetwear label.',
-      timeline: '2–3 months', role: 'E-commerce experience + product-line presentation', stack: 'Shopify', url: 'https://www.instagram.com/csaw_drip', urlLabel: 'instagram.com/csaw_drip',
-      challenge: 'A clever concept like “seesaw” is either the sharpest thing about a streetwear brand or the thing that quietly disappears the moment someone starts browsing.',
-      approach: 'The seesaw concept lives in specifics: in what products are actually called, and in a shopping experience simple enough that the personality sits in the naming.',
-      imgs: ['csawdrip', 'csawdrip-1', 'csawdrip-2']
+      slug: 'ledger', name: 'Ledger Go Digitify', kind: 'Product platform', label: 'Platform, finance', year: '2026',
+      line: 'A company finance and ledger management system.',
+      what: 'Ledgers, payments and expenses for a company, with scheduled daily and expense jobs.',
+      how: 'A layered Next.js 16 app: server actions and route handlers over services that own transactions, repositories as the only layer touching the database, with import rules enforced in lint.',
+      stack: 'Next.js 16 · MongoDB · Mongoose · Vercel cron',
+      repo: 'ledgergodigitify'
     },
     {
-      slug: 'tailored-paw', name: 'Tailored Paw', sector: 'Pet accessories', scope: 'E-Commerce + Conversion',
-      title: 'E-commerce experience for a personalization-first pet accessories brand.',
-      timeline: '2–3 months', role: 'E-commerce experience + conversion design', url: 'https://www.instagram.com/tailoredpaw', urlLabel: 'instagram.com/tailoredpaw',
-      challenge: 'Asking someone to upload a photo and commit to something custom-made raises the stakes of the purchase at exactly the moment they’re asked to do the most work.',
-      approach: 'Answer “what if my custom order doesn’t turn out right” at the moment of decision, with a guarantee and a photo guide that close the most common failure point.',
-      imgs: ['tailored-paw', 'tailored-paw-1', 'tailored-paw-2']
+      slug: 'sorvine', name: 'Sorvine', kind: 'Cinematic landing', label: 'Landing page, AI', year: '2026',
+      line: 'Two particle hands reach for a spark.',
+      what: 'A scroll-driven landing page where particle hands rise, part and dissolve into rings, then collapse into a brain before becoming a data field behind the content.',
+      how: 'Everything moves with scroll position and reverses on the way back up: a React Three Fiber particle scene with Lenis and GSAP ScrollTrigger.',
+      stack: 'Next.js · React Three Fiber · GSAP · Lenis',
+      repo: 'sorvine-2'
     },
     {
-      slug: 'jcm', name: 'JCM', sector: 'Streetwear', scope: 'Meta + Branding + Website',
-      title: 'Meta ads, branding and a rebuilt site for a premium 240 GSM tee.',
-      role: 'Meta advertising + branding + website redesign', url: 'https://www.instagram.com/jcm.tshirts', urlLabel: 'instagram.com/jcm.tshirts',
-      challenge: 'A 240 GSM tee costs more than the 180 GSM the category runs on, and that difference is invisible in a product photo.',
-      approach: 'Branding gave “Be different in the world” a consistent voice, the site made the 51-piece range read clearly, and Meta ads took the same message to the people most likely to pay for it.',
-      imgs: ['jcm']
-    },
-    {
-      slug: 'evvo', name: 'EVVO', sector: 'Mobility', scope: 'Launch',
-      title: 'From an app in development to a live digital product.',
-      role: 'Launch + digital presence', url: 'https://evvoelectric.com', urlLabel: 'evvoelectric.com',
-      challenge: 'EVVO came to us pre-launch, with the product still in development.',
-      approach: 'We took EVVO from concept to an online launch, shaping its digital presence and bringing the product to market as a live, accessible platform.',
-      imgs: ['evvo']
-    },
-    {
-      slug: 'lusso', name: 'Lusso Di Firenze', sector: 'Fragrance', scope: 'Meta ad creative',
-      title: 'Italian-inspired fragrance, assembled into a signature scent.',
-      role: 'Meta ad campaign creative + audience targeting', url: 'https://www.instagram.com/lussodifirenze', urlLabel: 'instagram.com/lussodifirenze',
-      challenge: 'Fragrance cannot be sampled online and an unknown house has no shelf to borrow trust from.',
-      approach: 'Campaign creative built around the Rs176 tester and the Build Your Own Box, so a buyer can commit small before committing at full price.',
-      imgs: ['lusso']
-    },
-    {
-      slug: 'afterhabit', name: 'After Habit', sector: 'Streetwear', scope: 'Brand guidelines + Social',
-      title: 'Brand guidelines and a social presence for a streetwear label built on everyday rituals.',
-      role: 'Brand guidelines + social media presence', url: 'https://www.instagram.com/after.habit', urlLabel: 'instagram.com/after.habit',
-      challenge: 'Each post, product shot and caption was decided on the day, so the feed looked like a handful of people talking about different things.',
-      approach: 'First the rules, then the posts: a written system for how After Habit looks, how it talks and what it never does, with the social presence built on top.'
-    },
-    {
-      slug: 'headtrixx', name: 'HeadTrixx', sector: 'Hair care', scope: 'Brand guidelines + Social',
-      title: 'Brand guidelines and a social presence for a haircare brand fixing hard-water damage.',
-      role: 'Brand guidelines + social media presence', url: 'https://www.instagram.com/headtrixx.co', urlLabel: 'instagram.com/headtrixx.co',
-      challenge: 'Hardly anyone blames the water coming out of their shower for hairfall, and haircare is one of the noisiest shelves online.',
-      approach: 'Name the problem people didn’t know they had, then show them the fix, in guidelines and a social presence that sound like an expert.'
-    },
-    {
-      slug: 'modestee-label', name: 'Modestee Label', sector: 'Modest fashion', scope: 'E-Commerce',
-      title: 'Premium hijabs and modest wear, priced for every day.',
-      url: 'https://www.instagram.com/modesteelabel.in', urlLabel: 'instagram.com/modesteelabel.in',
-      challenge: 'Eighty-nine products between Rs79 and Rs594 is a basket business, not a single-purchase one.',
-      approach: 'COD at Rs999 and free shipping at Rs1,499 do the work of turning a Rs200 intent into a Rs1,500 order.'
-    },
-    {
-      slug: 'vault-street', name: 'Vault Street', sector: 'Streetwear', scope: 'Brand consulting',
-      title: 'From an inconsistent social presence to a stronger brand direction.',
-      role: 'Brand consulting', url: 'https://www.instagram.com/vaultstreet.co.in', urlLabel: 'instagram.com/vaultstreet.co.in',
-      challenge: 'Vault Street needed a social media makeover and a clearer brand presence.',
-      approach: 'We refined their visual direction, communication and overall social presence into something cohesive enough to carry weight.'
+      slug: 'naaricare', name: 'NaariCare', kind: 'Product platform', label: 'Platform, wellness', year: '2026', n: 2,
+      line: 'A women’s wellness companion, from periods to parenthood.',
+      what: 'Cycle tracker, pregnancy care, mental wellness, nutrition guides and an AI chatbot for emotional support.',
+      how: 'A multi-page site with scroll animations, Firebase authentication and a chatbot.',
+      stack: 'HTML · CSS · JavaScript · Firebase',
+      repo: 'NaariCare'
     }
   ];
-  cases.forEach(c => { c.img = c.imgs ? W + c.imgs[0] + '.webp' : null; c.thumb = c.imgs ? W + c.imgs[0] + '-sm.webp' : null; c.gallery = (c.imgs || []).map(n => W + n + '.webp'); });
+  projects.forEach((p) => {
+    p.frames = p.n ? frames(p.slug, p.n).map((f) => P + f) : (p.img ? [p.img] : []);
+    p.gl = p.n ? frames(p.slug, p.n).map((f) => G + f) : [];
+    p.img = p.img || p.frames[0] || null;
+    p.thumb = p.thumb || (p.n ? P + p.slug + '-sm.webp' : null);
+    p.code = 'https://github.com/Akash12Tyagi/' + p.repo.split('/')[0];
+  });
+  const by = Object.fromEntries(projects.map((p) => [p.slug, p]));
+  const featured = ['rosso', 'legacy', 'lusso', 'octaboot', 'onfinity', 'uniques', 'skillcures', 'cricketlive'].map((s) => by[s]);
 
-  const pillars = [
-    { k: 'Define', line: 'Find what’s worth owning.', text: 'Positioning, category strategy and the point of view you’ll be known for.', tags: ['Positioning', 'Category strategy', 'Point of view'], img: W + 'vyomrita-2.webp', ref: 'vyomrita', refLabel: 'Vyomrita, from a blank page' },
-    { k: 'Express', line: 'Make it recognizable.', text: 'Naming, identity systems and the language that carries them.', tags: ['Naming', 'Identity systems', 'Language systems'], img: W + 'bobochi.webp', ref: 'bobochi', refLabel: 'BoBoChi Kids identity' },
-    { k: 'Build', line: 'Make it real.', text: 'Websites, platforms and the product experience behind them.', tags: ['Websites', 'Platforms', 'Product experience'], img: W + 'abrocare-2.webp', ref: 'abrocare', refLabel: 'AbroCare platform' },
-    { k: 'Grow', line: 'Make it compound.', text: 'Campaigns, search and the demand engine that keeps compounding.', tags: ['Campaigns', 'Search', 'Demand engine'], img: W + 'evren-1.webp', ref: 'evren', refLabel: 'Evren, ₹1L in month one' }
+  const studio = [
+    { slug: 'abrocare', name: 'AbroCare', label: 'Fintech platform', img: S + 'abrocare.webp', thumb: S + 'abrocare-sm.webp', url: 'https://www.beyourown.in/work/abrocare' },
+    { slug: 'liiaroma', name: 'LIIAROMA', label: 'Fragrance, brand + web', img: S + 'liiaroma.webp', thumb: S + 'liiaroma-sm.webp', url: 'https://www.beyourown.in/work/liiaroma' },
+    { slug: 'bobochi', name: 'BoBoChi Kids', label: 'Kidswear e-commerce', img: S + 'bobochi.webp', thumb: S + 'bobochi-sm.webp', url: 'https://www.beyourown.in/work/bobochi' },
+    { slug: 'sviet', name: 'SVIET', label: 'Placements page', img: S + 'sviet.webp', thumb: S + 'sviet-sm.webp', url: 'https://www.beyourown.in/work/sviet' },
+    { slug: 'alliance', name: 'Alliance', label: 'School communication software', img: S + 'alliance.webp', thumb: S + 'alliance-sm.webp', url: 'https://www.beyourown.in/work/alliance' },
+    { slug: 'evren', name: 'Evren', label: 'Haircare e-commerce', img: S + 'evren.webp', thumb: S + 'evren-sm.webp', url: 'https://www.beyourown.in/work/evren' }
   ];
 
-  const quotes = [
-    { who: 'BoBoChi', q: 'We didn’t just get a logo, we got a business the market finally understood. We’ve grown roughly 3x since launch, and for the first time, people who’d never heard of us recognize what we stand for.' },
-    { who: 'LIIAROMA', q: 'Our old site didn’t look like us at all. It looked like every other perfume seller online. Now it actually feels like the brand we built.' },
-    { who: 'Evren', q: 'BE YOUR OWN rebuilt the experience, sharpened the brand, and got us actually found in search. The difference isn’t just new customers, it’s the same customers coming back.' },
-    { who: 'SVIET', q: 'Parents don’t just want to hear “95% placement” anymore, they want to see it. This page finally lets them look for themselves instead of taking our word for it.' },
-    { who: 'Tailored Paw', q: 'Now the guarantee and the photo guide answer that before anyone even asks it out loud.' },
-    { who: 'CSAWDRIP', q: 'What made this work is that “seesaw” shows up in the actual product names now. You get the idea even if you never read a word of the brand copy.' },
-    { who: 'Orveet', q: 'We wanted the site to feel as considered as the clothes themselves. Restrained, not empty. That’s exactly what came out of this.' }
+  const make = [
+    { k: 'Real-time 3D experiences', text: 'Scroll-directed WebGL worlds and short films: sculpted in code, lit like a studio, timed like an edit.', refs: ['rosso', 'legacy', 'octaboot'] },
+    { k: '3D product and commerce', text: 'Products you can turn, open and size up: glass that refracts, TVs that light the room, configurators and AR.', refs: ['lusso', 'onfinity'] },
+    { k: 'Cinematic landing pages', text: 'One continuous world where every section is a camera move, with fallbacks that keep the content readable.', refs: ['skillcures', 'uniques', 'sorvine'] },
+    { k: 'Product platforms', text: 'The systems behind the screen: Next.js apps, Fastify APIs, Postgres and Redis, admin consoles and release gates.', refs: ['cricketlive', 'futureed', 'ledger'] },
+    { k: 'Motion and sound', text: 'Timelines, transitions and sound designed together: engine notes, film scores and hums synthesised with Web Audio.', refs: ['legacy', 'rosso', 'onfinity'] },
+    { k: 'Studio work', text: 'Sites and platforms for clients of BE YOUR OWN, the brand, digital and growth studio in Banur.', refs: ['futureed', 'lusso'], studio: true }
   ];
 
-  return { cases, featured: cases.filter(c => c.featured), pillars, quotes, bySlug: Object.fromEntries(cases.map(c => [c.slug, c])) };
+  const timeline = [
+    { y: '2024', t: 'First full-stack builds', d: 'Educational web and a first backend: the start of shipping things people use.', tags: ['Educational web', 'Backend'] },
+    { y: '2025', t: 'Products and dashboards', d: 'TechLearns, a dashboard app and cloud work on AWS.', tags: ['TechLearns', 'Dashboard app', 'AWS'] },
+    { y: '2026', t: 'Platforms in production', d: 'Task management, seat allocation, a finance and ledger system and admissions platforms.', tags: ['Ledger Go Digitify', 'Future Education', 'Seat allocation'] },
+    { y: 'Oct', t: 'Into real-time 3D', d: 'Perfume bottles modelled from photography, a suit that folds itself, particle hands and a community you fly through.', tags: ['Lusso di Firenze', 'Octaboot', 'Sorvine', 'The Uniques'] },
+    { y: 'Nov', t: 'Films in the browser', d: 'A procedural V8, a four-act WebGL short, a TV showroom with AR and a live-scores platform for 10k users.', tags: ['Rosso', 'Legacy Protocol', 'Onfinity', 'CricketLive'] },
+    { y: 'Now', t: 'Building with BE YOUR OWN', d: 'Real-time 3D, motion and product work for brands, from Banur, Punjab.', tags: ['Open to projects'] }
+  ];
+
+  const words = ['3D', 'WebGL', 'Shaders', 'Motion', 'Sound', 'Film', 'Commerce', 'Products', 'Next.js', 'APIs', 'Data', 'Sites'];
+
+  return { projects, featured, by, studio, make, timeline, words };
 })();
