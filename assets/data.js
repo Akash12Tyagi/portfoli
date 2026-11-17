@@ -11,15 +11,15 @@ window.AT = (function () {
       what: 'A pitch-ready concept for a premium car site built around a real-time 3D 458 Italia: a studio light rig, a paint-sweep shader, flames at the limiter and an exploded anatomy view.',
       how: 'The Engine chapter is a procedural, component-separated V8 of 22 assemblies with exact slider-crank and cam kinematics, teardown poses and an x-ray mode, plus a Web Audio engine note driven by rpm.',
       stack: 'three.js · GLSL · GSAP · Lenis · Web Audio · Vite', note: 'Unofficial concept, not affiliated with Ferrari.',
-      repo: 'car-3d'
+      repo: 'car-3d', live: 'https://car-3d-zeta.vercel.app/'
     },
     {
-      slug: 'legacy', name: 'The Legacy Protocol', kind: 'WebGL film', label: 'Fan tribute, short film', year: '2026', n: 6,
-      line: 'A four-act cinematic short, rendered live and directed by scroll.',
-      what: 'A damaged helmet and a dying arc reactor, the armour coming apart into embers, a silent gap, then a hall of iron where a cloaked figure calls up a sphere of green energy.',
-      how: 'Every model is sculpted in code with signed-distance fields and meshed in parallel workers. Erosion shading, a vertex-animated cloak, depth of field, bloom and grain, one scrubbed timeline and a soundtrack synthesised in the browser.',
-      stack: 'React 19 · three.js · SDF + Surface Nets · GSAP ScrollTrigger · Web Audio', note: 'Unofficial fan tribute. No footage, images or music used.',
-      repo: 'iron-man'
+      slug: 'cafe', name: 'Corner Café', kind: 'Real-time 3D', label: 'Concept, specialty coffee', year: '2026', n: 5,
+      line: 'A New York corner café you fly into, from the skyline to the counter.',
+      what: 'One room on one corner of New York. The page opens over a low-poly city, drops down the avenue to the storefront and walks in to the counter, the menu board and the espresso machine.',
+      how: 'A scroll-driven three.js scene under real HTML copy: the camera flies a path from the skyline to the bar, the brew numbers (18 g, 93 °C, 28 s) sit beside the machine, and the shot pours as you read.',
+      stack: 'three.js · scroll-driven camera path · HTML over WebGL',
+      live: 'https://corner-cafe-3d-scroll-site.vercel.app/'
     },
     {
       slug: 'lusso', name: 'Lusso di Firenze', kind: '3D commerce', label: 'Concept, fragrance', year: '2026', n: 6,
@@ -27,15 +27,7 @@ window.AT = (function () {
       what: 'A concept homepage built to the Lusso di Firenze brand guidelines. All ten bottles are real-time models with transmissive glass, refracting liquid and printed labels on a travertine turntable.',
       how: 'A scroll story from hero to notes orbiting an open bottle, the collection turntable, brand pillars and a 3D gift box whose lid opens as three chosen bottles drop in. Drag to turn, click to spritz.',
       stack: 'three.js · Lenis · physical glass materials', note: 'Built at BE YOUR OWN.',
-      repo: 'akash-tyagi'
-    },
-    {
-      slug: 'octaboot', name: 'Octaboot', kind: 'Real-time 3D', label: 'Concept, tailoring', year: '2026', n: 4,
-      line: 'A three-piece suit, cut flat and folded onto the body as you scroll.',
-      what: 'A bespoke suit is cut on the table, carried to the tailor’s form and folded into shape piece by piece. Scroll back and every piece unfolds again. Colour and cloth pickers restyle it live.',
-      how: 'A 20-bone rig over parametric tubes with procedural breathing and an IK walk. Every garment vertex stores its flat and closed shapes, and a shader folds between them with thickness, creases and hem sway.',
-      stack: 'React · three.js · custom cloth shader · SDF sculpting in workers',
-      repo: 'suits'
+      repo: 'akash-tyagi', live: 'https://beyourown-portfolio.vercel.app'
     },
     {
       slug: 'onfinity', name: 'Onfinity', kind: '3D commerce', label: 'Concept, electronics', year: '2026', n: 5,
@@ -43,7 +35,7 @@ window.AT = (function () {
       what: 'A procedurally modelled TV whose screen is a live shader, sized from 32 to 98 inches beside a person for scale, then an infinite corridor of screens, a shop with cart, and a true-to-scale 3D room.',
       how: 'A power-on gate with a CRT flash and synthesised hum, 4K, QLED and OLED screen wipes, a CRT post pass in the showroom, AR through Quick Look and WebXR, and a small Node server for leads and analytics.',
       stack: 'three.js · GLSL · WebXR · Node',
-      repo: 'NaariCare/onfinity-3d'
+      repo: 'NaariCare/onfinity-3d', live: 'https://onfinity-3d.vercel.app'
     },
     {
       slug: 'uniques', name: 'The Uniques', kind: 'Real-time 3D', label: 'Concept, community', year: '2026', n: 5,
@@ -51,7 +43,7 @@ window.AT = (function () {
       what: 'A spatial re-imagining of the Uniques homepage: a poster corridor out through a neon portal, extruded numbers in lacquer and chrome, a helix of events and a drum of photos you can spin.',
       how: 'Twelve HTML chapters scroll over one WebGL world. Each chapter’s centre maps to a station on a Catmull-Rom camera rail, with bloom on desktop and a re-framed rail on phones.',
       stack: 'React · three.js · Catmull-Rom camera rail · bloom',
-      repo: 'uniques-sample/uniques-3d'
+      repo: 'uniques-sample/uniques-3d', live: 'https://theuniques.vercel.app'
     },
     {
       slug: 'skillcures', name: 'SkillCures', kind: 'Cinematic landing', label: 'Landing page, pharma careers', year: '2026', n: 6,
@@ -59,7 +51,7 @@ window.AT = (function () {
       what: 'A real-time 3D rebuild of the SkillCures landing page: a dashboard, a live prescription, a patent journey, a network globe and a mentor table, with the four pill mascots rebuilt as 3D models.',
       how: 'Dolly, truck, dive, sweep and crane moves between chapters, adaptive quality that steps resolution and bloom down when frames drop, and a static fallback with the same content.',
       stack: 'three.js · Vite · adaptive quality',
-      repo: 'skillcures-3d'
+      repo: 'skillcures-3d', live: 'https://skillcure.vercel.app/'
     },
     {
       slug: 'cricketlive', name: 'CricketLive', kind: 'Product platform', label: 'Platform, sports', year: '2026', n: 4,
@@ -83,7 +75,7 @@ window.AT = (function () {
       what: 'Ledgers, payments and expenses for a company, with scheduled daily and expense jobs.',
       how: 'A layered Next.js 16 app: server actions and route handlers over services that own transactions, repositories as the only layer touching the database, with import rules enforced in lint.',
       stack: 'Next.js 16 · MongoDB · Mongoose · Vercel cron',
-      repo: 'ledgergodigitify'
+      repo: 'ledgergodigitify', live: 'https://ledgergodigitify.vercel.app'
     },
     {
       slug: 'sorvine', name: 'Sorvine', kind: 'Cinematic landing', label: 'Landing page, AI', year: '2026',
@@ -107,10 +99,11 @@ window.AT = (function () {
     p.gl = p.n ? frames(p.slug, p.n).map((f) => G + f) : [];
     p.img = p.img || p.frames[0] || null;
     p.thumb = p.thumb || (p.n ? P + p.slug + '-sm.webp' : null);
-    p.code = 'https://github.com/Akash12Tyagi/' + p.repo.split('/')[0];
+    p.code = p.repo ? 'https://github.com/Akash12Tyagi/' + p.repo.split('/')[0] : null;
+    p.host = p.live ? p.live.replace(/^https?:\/\//, '').replace(/\/$/, '') : null;
   });
   const by = Object.fromEntries(projects.map((p) => [p.slug, p]));
-  const featured = ['rosso', 'legacy', 'lusso', 'octaboot', 'onfinity', 'uniques', 'skillcures', 'cricketlive'].map((s) => by[s]);
+  const featured = ['rosso', 'cafe', 'lusso', 'onfinity', 'uniques', 'skillcures', 'cricketlive'].map((s) => by[s]);
 
   const studio = [
     { slug: 'abrocare', name: 'AbroCare', label: 'Fintech platform', img: S + 'abrocare.webp', thumb: S + 'abrocare-sm.webp', url: 'https://www.beyourown.in/work/abrocare' },
@@ -122,11 +115,11 @@ window.AT = (function () {
   ];
 
   const make = [
-    { k: 'Real-time 3D experiences', text: 'Scroll-directed WebGL worlds and short films: sculpted in code, lit like a studio, timed like an edit.', refs: ['rosso', 'legacy', 'octaboot'] },
+    { k: 'Real-time 3D experiences', text: 'Scroll-directed WebGL worlds: modelled in code, lit like a studio, timed like an edit.', refs: ['rosso', 'cafe', 'uniques'] },
     { k: '3D product and commerce', text: 'Products you can turn, open and size up: glass that refracts, TVs that light the room, configurators and AR.', refs: ['lusso', 'onfinity'] },
     { k: 'Cinematic landing pages', text: 'One continuous world where every section is a camera move, with fallbacks that keep the content readable.', refs: ['skillcures', 'uniques', 'sorvine'] },
     { k: 'Product platforms', text: 'The systems behind the screen: Next.js apps, Fastify APIs, Postgres and Redis, admin consoles and release gates.', refs: ['cricketlive', 'futureed', 'ledger'] },
-    { k: 'Motion and sound', text: 'Timelines, transitions and sound designed together: engine notes, film scores and hums synthesised with Web Audio.', refs: ['legacy', 'rosso', 'onfinity'] },
+    { k: 'Motion and sound', text: 'Timelines, transitions and sound designed together: engine notes and showroom hums synthesised with Web Audio.', refs: ['rosso', 'onfinity'] },
     { k: 'Studio work', text: 'Sites and platforms for clients of BE YOUR OWN, the brand, digital and growth studio in Banur.', refs: ['futureed', 'lusso'], studio: true }
   ];
 
@@ -134,12 +127,12 @@ window.AT = (function () {
     { y: '2024', t: 'First full-stack builds', d: 'Educational web and a first backend: the start of shipping things people use.', tags: ['Educational web', 'Backend'] },
     { y: '2025', t: 'Products and dashboards', d: 'TechLearns, a dashboard app and cloud work on AWS.', tags: ['TechLearns', 'Dashboard app', 'AWS'] },
     { y: '2026', t: 'Platforms in production', d: 'Task management, seat allocation, a finance and ledger system and admissions platforms.', tags: ['Ledger Go Digitify', 'Future Education', 'Seat allocation'] },
-    { y: 'Oct', t: 'Into real-time 3D', d: 'Perfume bottles modelled from photography, a suit that folds itself, particle hands and a community you fly through.', tags: ['Lusso di Firenze', 'Octaboot', 'Sorvine', 'The Uniques'] },
-    { y: 'Nov', t: 'Films in the browser', d: 'A procedural V8, a four-act WebGL short, a TV showroom with AR and a live-scores platform for 10k users.', tags: ['Rosso', 'Legacy Protocol', 'Onfinity', 'CricketLive'] },
+    { y: 'Oct', t: 'Into real-time 3D', d: 'Perfume bottles modelled from photography, particle hands that become a brain, and a community you fly through.', tags: ['Lusso di Firenze', 'Sorvine', 'The Uniques'] },
+    { y: 'Nov', t: 'Worlds you can walk into', d: 'A procedural V8, a café on a New York corner, a TV showroom with AR, a pharma careers world and a live-scores platform for 10k users.', tags: ['Rosso', 'Corner Café', 'Onfinity', 'SkillCures', 'CricketLive'] },
     { y: 'Now', t: 'Building with BE YOUR OWN', d: 'Real-time 3D, motion and product work for brands, from Banur, Punjab.', tags: ['Open to projects'] }
   ];
 
-  const words = ['3D', 'WebGL', 'Shaders', 'Motion', 'Sound', 'Film', 'Commerce', 'Products', 'Next.js', 'APIs', 'Data', 'Sites'];
+  const words = ['3D', 'WebGL', 'Shaders', 'Motion', 'Sound', 'Scroll', 'Commerce', 'Products', 'Next.js', 'APIs', 'Data', 'Sites'];
 
   return { projects, featured, by, studio, make, timeline, words };
 })();

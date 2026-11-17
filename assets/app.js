@@ -12,7 +12,7 @@
   const fine = matchMedia('(hover: hover) and (pointer: fine)').matches;
 
   /* hall screens: a showreel that cycles every project, then each featured project */
-  const reel = { slug: null, name: 'Showreel', meta: '2026, eight projects', gl: D.featured.map((p) => p.gl[0]) };
+  const reel = { slug: null, name: 'Showreel', meta: '2026, seven projects', gl: D.featured.map((p) => p.gl[0]) };
   const screens = [reel, ...D.featured.map((p) => ({ slug: p.slug, name: p.name, meta: p.kind + ' · ' + p.year, gl: p.gl }))];
 
   /* ---------- bus ---------- */
@@ -83,7 +83,7 @@
      ===================================================================== */
   const gate = $('#gate'), panesEl = $('#panes'), lines = $('#gateLines'), hit = $('#gateHit');
   const WORDS = D.words, NW = WORDS.length, STEP = 360 / NW;
-  const paneImgs = ['rosso-0', 'legacy-1', 'lusso-0', 'octaboot-0', 'onfinity-0', 'uniques-0', 'skillcures-1', 'cricketlive-0', 'rosso-3', 'legacy-5', 'lusso-2', 'onfinity-1'].map((n) => 'assets/p/gl/' + n + '.webp');
+  const paneImgs = ['rosso-0', 'cafe-0', 'lusso-0', 'cafe-2', 'onfinity-0', 'uniques-0', 'skillcures-1', 'cricketlive-0', 'rosso-3', 'cafe-3', 'lusso-2', 'onfinity-1'].map((n) => 'assets/p/gl/' + n + '.webp');
   const panes = WORDS.map((w, i) => {
     const d = document.createElement('div'); d.className = 'pane';
     const im = document.createElement('i'); im.style.backgroundImage = `url("${paneImgs[i % paneImgs.length]}")`;
@@ -445,7 +445,10 @@
     $('#caseWhat').textContent = p.what; $('#caseHow').textContent = p.how;
     $('#caseMeta').innerHTML = [['Year', p.year], ['Type', p.kind], ['Built with', p.stack]].map((m) => `<div${m[0] === 'Built with' ? ' style="grid-column:1/-1"' : ''}><dt>${m[0]}</dt><dd>${m[1]}</dd></div>`).join('');
     $('#caseNote').textContent = p.note || ''; $('#caseNote').hidden = !p.note;
-    $('#caseLinks').innerHTML = `<a class="btn btn--o" href="${p.code}" target="_blank" rel="noopener"><span class="pt"></span><span class="roll"><span>View the code</span><span aria-hidden="true">github.com/Akash12Tyagi</span></span></a>`;
+    const L = [];
+    if (p.live) L.push(`<a class="btn btn--o" href="${p.live}" target="_blank" rel="noopener"><span class="pt"></span><span class="roll"><span>Visit the live site</span><span aria-hidden="true">${p.host} ↗</span></span></a>`);
+    if (p.code) L.push(`<a class="btn ${p.live ? 'btn--g' : 'btn--o'}" href="${p.code}" target="_blank" rel="noopener">${p.live ? '' : '<span class="pt"></span>'}<span class="roll"><span>View the code</span><span aria-hidden="true">github.com/Akash12Tyagi</span></span></a>`);
+    $('#caseLinks').innerHTML = L.join('');
     const main = $('#caseMain'), th = $('#caseThumbs');
     if (p.frames.length) {
       main.innerHTML = `<img src="${p.frames[0]}" alt="${p.name}, frame 1">`;
